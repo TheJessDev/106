@@ -1,0 +1,128 @@
+html, body{
+    height: 100vh;
+    margin:0;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* header main {
+    background-image: url("https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+} */
+
+header{
+    height:45px;
+   
+}
+    
+
+header h1{
+    padding-bottom:2px;
+    margin: 0;
+    background-color:#f2f2f2;
+    height: 100%;
+}
+
+.h1{
+    text-align: center;
+    color:#A68A56;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 28px;
+}
+
+
+main{
+    min-height: height 700px;
+    height: calc(100vh - 72px);
+
+}
+
+.parent{
+    display:flex;
+    padding:0;
+    margin:0;
+}
+
+
+#list{
+    flex:3;
+    background-color:#f2f2f2;
+    color: #A68A56;
+    text-align:justify;
+}
+
+h5 {
+    margin-left: 300px;
+    font-size: 24px;
+    padding-top: 3px;
+}
+
+.btn-details {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 278px;
+}
+
+section#form {
+    border-radius: 8px;
+}
+
+#form{
+    flex:2;
+   /* background-color: rgb(9, 170, 170);*/
+   background-color:lightsteelblue;
+   color:#A68A56;
+    padding: 10px 25px 10px 25px;
+    overflow-y: auto;
+}
+
+
+.field{
+    margin-bottom: 20px;
+}
+
+.field label{
+    color:#0D0D0D;
+    margin-bottom:0;
+}
+
+.feild #formIcon{
+    margin-bottom: 0;
+}
+
+.input-control-color{
+    width:70px;
+}
+
+.button-container{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.footer{
+    background-color:#f2f2f2;
+    height: 25px;
+    color:#A68A56;
+    text-align: center;
+    padding-top: .5px;
+}
+
+
+ .notImportant{
+    font-size: 30px;
+    cursor: pointer;
+    color: #6a6a6b;
+}
+
+/* space = inside
+no space = same element contains both */
+
+.notImportant.fa-regular.fa-star {
+    color:#A68A56;
+}
+
+/*notImportant fa-regular fa-star*/
