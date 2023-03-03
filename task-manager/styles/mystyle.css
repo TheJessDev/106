@@ -2,127 +2,201 @@ html, body{
     height: 100vh;
     margin:0;
     padding:0;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;  
 }
 
-/* header main {
-    background-image: url("https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-} */
-
 header{
-    height:45px;
-   
+    height:50px;   
 }
     
 
 header h1{
     padding-bottom:2px;
     margin: 0;
-    background-color:#f2f2f2;
-    height: 100%;
+    background-color:#082c36;
+    height: 50px;
 }
 
 .h1{
     text-align: center;
     color:#A68A56;
-    padding-top: 2px;
+    padding-top: 7px;
     padding-bottom: 2px;
     font-size: 28px;
+    margin: 0;
 }
 
 
-main{
-    min-height: height 700px;
-    height: calc(100vh - 72px);
 
+main.container-fluid.parent {
+    max-height: 700px;
+    padding: 0;
+    height: calc(100vh - 91px); 
 }
+
 
 .parent{
     display:flex;
-    padding:0;
-    margin:0;
+    /* padding:0;
+    margin:0;  */ 
+}    
+
+h5 {
+    margin: 0 20px 30px 150px;
+    /* margin-left: 150px;
+    margin-right:20px; */
+    font-size: 24px;
+    padding-top: 3px;
+    width:300px;
 }
 
+#form h5 {
+    width:150px;
+}
 
 #list{
     flex:3;
-    background-color:#f2f2f2;
     color: #A68A56;
-    text-align:justify;
+    position: relative;
+    padding: 10px 25px 10px 25px;
+    background-image: url("https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /*background-color:#f6f0e4;*/
 }
 
-h5 {
-    margin-left: 300px;
-    font-size: 24px;
-    padding-top: 3px;
+
+#toggleView {
+    position:absolute;
+    top:12px;
+    right:25px;
 }
 
-.btn-details {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 278px;
+.isVisible {
+    background-color: #A68A56;
+    border-color: #F2D296;
+    color: #ebe9e9;
+}
+.isVisible:hover {
+    color:#021B22;
+    border:#021B22;
+    background-color: #A68A56;
 }
 
-section#form {
-    border-radius: 8px;
+.save {
+    background-color: #a68347;
+    border-color: #F2D296;
+    color:#ebe9e9;
+    width: 125px;
+}
+.save:hover {
+    color:#021B22;
+    border:#021B22;
+    background-color: #A68A56;
+}
+
+section {
+    height: 654.9px;
 }
 
 #form{
     flex:2;
-   /* background-color: rgb(9, 170, 170);*/
-   background-color:lightsteelblue;
-   color:#A68A56;
-    padding: 10px 25px 10px 25px;
-    overflow-y: auto;
+    color:#A68A56;
+    padding: 10px 15px 10px 15px;
+    background-color:#3a4b50;
 }
 
 
 .field{
-    margin-bottom: 20px;
+    margin-bottom: 12px;       
+}
+
+.form-select {
+    width: 290px;
+    background-color:#ebe9e9;
 }
 
 .field label{
-    color:#0D0D0D;
+    color:#ebe9e9;
     margin-bottom:0;
+    display: block;
 }
 
 .feild #formIcon{
     margin-bottom: 0;
 }
 
-.input-control-color{
-    width:70px;
+.input-control{
+    border-radius: 5px;
+    border-color: #A68A56;
+    width:250px;
+    background-color:#ebe9e9;
 }
 
-.button-container{
-    padding-top: 10px;
-    padding-bottom: 20px;
+.input-control-color{
+    width:100px;
+    border-radius: 5px;
+    background-color:#ebe9e9;
+}
+
+.field.button-container{
+    margin: 0;
+    padding:0;
     text-align: center;
 }
 
 .footer{
-    background-color:#f2f2f2;
-    height: 25px;
+    background-color:#021B22;
+    height: 40px;
     color:#A68A56;
     text-align: center;
-    padding-top: .5px;
+    padding-top: 10px;
 }
 
 
  .notImportant{
     font-size: 30px;
     cursor: pointer;
-    color: #6a6a6b;
+    color: #A68A56;
 }
 
-/* space = inside
+/* space = inside 
 no space = same element contains both */
 
 .notImportant.fa-regular.fa-star {
     color:#A68A56;
 }
 
-/*notImportant fa-regular fa-star*/
+#pending-task {
+    position:relative;
+    max-height: 590px;
+    margin: 10px 35px 10px 35px;
+}
+
+.task {
+    display: flex;
+    margin-top:18px;
+    font-size: 18px;
+    text-align: center;
+    padding: 7px 7px 7px 14px;
+    align-items: center;
+    background-color: #384649b8;
+    color:#ebe9e9 ;
+}
+
+.task .info {
+    flex:3; 
+    margin-left: 10px; 
+}
+
+.task .category {
+    flex:1;  
+    margin-left: 10px; 
+}
+
+.task .details {
+    flex:1; 
+    margin-left: 10px; 
+}
+

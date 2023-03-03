@@ -4,69 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="./styles/mystyle.css">
-
-    <!---https://fontawesome.com/search?o=r&m=free--->
-    <!---non-important <i class="fa-regular fa-star"></i>
-        important <i class="fa-solid fa-star"></i>--->
 
 
     <title>TM App</title>
 
 </head>
 
-    
-<!-- <style>
-    .parent {
-     background-image: url("https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    }
-</style> -->
-
 <body>
     <header>
-        <h1 class="h1">My Super Task Manager</h1>
+        <h1 class="h1">Things to Conquer</h1>
     </header>
 
     <main class="container-fluid parent">
         <section id="list">
-            <h5>Your tasks</h5>
-
-            <div class="btn-details">
-                <button id="toggleView" class="btn btn-primary">Show/Hide details</button>
+        
+            <h5>Pending Quests</h5>
+            
+            
+            <button id="toggleView" class=" isVisible btn btn-primary">Show/Hide details</button>
+            
+        
+            <div id="pending-task">
+                <!-- render tasks here-->
+                
             </div>
         </section>
 
         
         <section id="form" >
-            <h5>Save task</h5>
+            <h5>New Quest</h5>
 
-            <div class="field">  <!--Why only one icon here? Don't we need an icon for each state?-->  <!--Because of toggleView()?? --> 
-                <i id="formIcon" class="notImportant fa-regular fa-star"></i>  <!-- "Important" <i class="fa-solid fa-star"></i>-->
+            <div class="field">  
+                <i id="formIcon" class="notImportant fa-regular fa-star"></i>
             </div>
            
             <div class="field">
                <label class="form-label">Title</label>
-               <input class="input-control" type="text">
+               <input id="txtTitle" class="input-control" type="text">
            </div>
 
            <div class="field">
                 <label class="form-label">Description</label>
-                <textarea rows="3" class="input-control"></textarea>
+                <textarea id="txtDesc"  rows="3" class="input-control"></textarea>
             </div>
 
             <div class="field">
                 <label class="form-label">Due Date</label>
-                <input class="input-control" type="datetime-local">
+                <input id="selDate" class="input-control" type="datetime-local">
             </div>
 
             <div class="field">
                 <label class="form-label">Category</label>
-                <select class="form-select">
+                <select id="selCategory" class="form-select">
                     <option>Work</option>
                     <option>Family</option>
                     <option>Personal</option>
@@ -75,47 +68,23 @@
 
             <div class="field">
                 <label class="form-label">Priority</label>
-                <select class="form-select">
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
-                    <option>Important</option>
+                <select id="selPriority" class="form-select">
+                    <option>LOW</option>
+                    <option>MEDIUM</option>
+                    <option>HIGH</option>
+                    <option>IMPORTANT</option>
                 </select>
             </div>
 
             <div class="field">
                 <label class="form-label">Color</label>
-                <input class="input-control-color" type="color">
+                <input id="selColor" class="input-control-color" type="color">
             </div>
 
             <div class="field button-container">
-                <button class="btn btn-dark">Save</button>
+                <button id="btnSave" class=" save btn btn-dark">Save</button>
 
             </div>
-        
-
-            <!-- <section>Title
-                <input type="text">
-            </section>
-                
-            <section>Description
-                <input>
-            </section>
-                
-            <section>Due date
-                <input>
-            </section>
-            <section>Category
-                <input>
-            </section>
-            <section>Color
-                <input>
-            </section> -->
-
-            <!-- <section class="field">
-                <label>Priority</label>
-                <input>
-            </section> -->
 
         </section>
 
@@ -129,6 +98,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
     crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="./scripts/task.js"></script>
     <script src="./scripts/app.js"></script>
 </body>
 </html>
@@ -136,9 +106,9 @@
 
 <!-- 
     Task
-
-important
-status
+    id (not visible)
+    status (not visible by user) ?
+    important
 
 title
 description
