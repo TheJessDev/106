@@ -7,20 +7,21 @@ var isImportant = false;  // starting with non important
 var isVisible = true;
 
 function toggleImportant() {
-     if(isImportant) {
-         // change it to Not Important
-         isImportant = false;
-         $("#formIcon")  // single line instruction
-             .removeClass(importantIcon)
-             .addClass(notImportantIcon);
-     }
-     else {
+    if(isImportant) {
+
+        // change it to Not Important
+        isImportant = false;
+        $("#formIcon")  // single line instruction
+        .removeClass(importantIcon)
+        .addClass(notImportantIcon);
+    }
+    else {
          // change it to Important
-         isImportant = true;
-         $("#formIcon")
-             .removeClass(notImportantIcon)
-             .addClass(importantIcon);
-     }
+        isImportant = true;
+        $("#formIcon")
+        .removeClass(notImportantIcon)
+        .addClass(importantIcon);
+    }
 }
 
 function toggleView() {
@@ -43,7 +44,7 @@ function saveTask(){
     let category = $("#selCategory").val();
     let priority = $("#selPriority").val();
     let color = $("#selColor").val();
-    console.log(title, desc, dueDate, category, priority, color);
+    // console.log(title, desc, dueDate, category, priority, color);
 
     let task = new Task(isImportant, title, desc, dueDate, category, priority, color);
 
@@ -51,27 +52,30 @@ function saveTask(){
 
     // ajax logic goes here
     // try to POST the response to the server
-    // the server name is http://fsdiapi.azurewebsites.net/api/task/
+    // the server name is http://fsdiapi.azurewebsites.net/api/tasks/
+
+    // I am successful with the testResponse() but when I get to this point, the server does not connect, even after moving the displayTask(task) inside ajax
 
     
-    // $.ajax({
-    //     type: "POST",
-    //     url: "http://fsdiapi.azurewebsites.net/api/tasks/",
-    //     data: JSON.stringify(task),  // <----- only used for POST
-    //     contentType: "application/jason",  // <----- only used for POST
-    //     success: function (response) { //respone in the JSON string
-    //         console.log(response);
-    //         displayTask(task);
+    $.ajax({
+        type: "POST",
+        url: "http://fsdiapi.azurewebsites.net/api/tasks/",
 
-    //     },
-    //     error: function (error) {
-    //         console.log(error);
+       data: JSON.stringify(task),  // <----- only used for POST
+       contentType:"application/jason",  // <----- only used for POST
 
-    //     }
-    // })
+        success: function (res) { //response in the JSON string
+            console.log(res);
+            displayTask(task);
+        },
+        error: function (error) {
+            console.log(error);
+
+        }
+    })
     
 
-   displayTask(task);  // **!!comment this line when connecting to server. called on line 64!!**
+   //displayTask(task);  // comment this line when connecting to server. function now in ajax
 
    // clear form
    toggleImportant(false);
@@ -111,39 +115,39 @@ let syntax = `<div class='task' style="border:3px solid ${task.color}">
 $("#pending-task").append(syntax);
 }
 
-// fetch
-// function testRequest(){
+//fetch
+
+// function testRequest(){ 
 //     $.ajax({
 //         type: "delete",
 //         url: "http://fsdiapi.azurewebsites.net/",
 //         success: function (response) {
 //             console.log(response);
-
 //         },
 //         error: function (error) {
 //             console.log(error);
-
-//         }
+//         } 
 //     });
 // }
 
-// function loadTasks() {
-//     $.ajax({
-//         type: "GET",
-//         url: "http://fsdiapi.azurewebsites.net/api/tasks",
-//         success: function (response) { //respone in the JSON string
-//             let data = JSON.parse(response);
-//             console.log(response);
-//             console.log(data);
-//             displayTask(task);
-//         },
-//         error: function (error) {
-//             console.log(error);
 
-//             alert("Unexpected error");
-//         }
-//     })
-// };
+function loadTasks() {
+    $.ajax({
+        type: "GET",
+        url: "http://fsdiapi.azurewebsites.net/api/tasks",
+        success: function (response) { //respone in the JSON string
+            let data = JSON.parse(response);
+            console.log(response);
+            console.log(data);
+            displayTask(task); // At this point, I get an error saying 'task is not defined'
+       },
+       error: function (error) {
+           console.log(error);
+
+            alert("Unexpected error");
+        }
+    })
+ }
 
 function init(){
     //console.log("task manager");
@@ -154,7 +158,7 @@ function init(){
     $("#btnSave").click(saveTask);
 
     // load data
-    //loadTasks();
+    loadTasks();
 }
 
 window.onload = init;
